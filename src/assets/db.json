@@ -1,50 +1,72 @@
 {
-    "products": [
+  "products": [
+    {
+      "id": 1,
+      "name": "Processor"
+    },
+    {
+      "id": 2,
+      "name": "RAM"
+    },
+    {
+      "id": 3,
+      "name": "SSD"
+    }
+  ],
+  "orders": [
+    {
+      "date": "16/2/2020 - 14:43",
+      "list": [
         {
-            "id": 1,
-            "name": "Processor"
+          "name": "Processor",
+          "price": 99,
+          "quantity": 1,
+          "minus10": false
         },
         {
-            "id": 2,
-            "name": "RAM"
-        },
-        {
-            "id": 3,
-            "name": "SSD"
+          "name": "RAM",
+          "price": 35,
+          "quantity": "2",
+          "minus10": false
         }
-    ],
-    "commands": [
+      ],
+      "id": 1
+    },
+    {
+      "date": "16/2/2020 - 14:45",
+      "list": [
         {
-            "id": 1,
-            "date": "",
-            "list":[
-                {
-                    "name": "Processor",
-                    "price": 99,
-                    "quantity": 1
-                },
-                {
-                    "name": "RAM",
-                    "price": 35,
-                    "quantity": 2
-                }
-            ]
+          "name": "SSD",
+          "price": 60,
+          "quantity": 1,
+          "minus10": false
         },
         {
-            "id": 2,
-            "date": "",
-            "list":[
-                {
-                    "name": "Processor",
-                    "price": 250,
-                    "quantity": 1
-                },
-                {
-                    "name": "SSD",
-                    "price": 60,
-                    "quantity": 1
-                }
-            ]
+          "name": "RAM",
+          "price": 40,
+          "quantity": "4",
+          "minus10": false
+        },
+        {
+          "name": "Thermal Paste",
+          "price": 3,
+          "quantity": 1,
+          "minus10": true
         }
-    ]
+      ],
+      "id": 2
+    },
+    {
+      "date": "16/2/2020 - 14:48",
+      "list": [
+        {
+          "name": "RAM",
+          "price": 50,
+          "quantity": "2",
+          "minus10": false
+        }
+      ],
+      "id": 3
+    }
+  ]
 }
