@@ -87,6 +87,7 @@ export default {
         .then(json => console.log(json));
 
       this.list = [];
+
     }
   }
 };
@@ -105,14 +106,14 @@ function myDateString() {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .prepare-order {
+  flex-basis: 50%;
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .prepare-menu {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }
 
 .card {
