@@ -1,0 +1,50 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Processor"
+        },
+        {
+            "id": 2,
+            "name": "RAM"
+        },
+        {
+            "id": 3,
+            "name": "SSD"
+        }
+    ],
+    "commands": [
+        {
+            "id": 1,
+            "date": "",
+            "list":[
+                {
+                    "name": "Processor",
+                    "price": 99,
+                    "quantity": 1
+                },
+                {
+                    "name": "RAM",
+                    "price": 35,
+                    "quantity": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "date": "",
+            "list":[
+                {
+                    "name": "Processor",
+                    "price": 250,
+                    "quantity": 1
+                },
+                {
+                    "name": "SSD",
+                    "price": 60,
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
+}
