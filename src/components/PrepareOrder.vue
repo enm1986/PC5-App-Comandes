@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { EventBus } from "./event-bus.js";
 export default {
   name: "PrepareOrder",
   data: function() {
@@ -71,36 +72,14 @@ export default {
     deleteProduct: function(product) {
       this.list.splice(this.list.indexOf(product), 1);
     },
-    // añade el pedido a la BD
     addOrder: function() {
-      fetch("http://localhost:3000/orders", {
-        method: "POST",
-        body: JSON.stringify({
-          date: myDateString(),
-          list: this.list
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      })
-        .then(response => response.json())
-        .then(json => console.log(json));
-
-      this.list = [];
-
+      if (this.list.length > 0) {
+        EventBus.$emit("create-order", this.list);
+        this.list = [];
+      }
     }
   }
 };
-
-function myDateString() {
-  let date = new Date();
-  let year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let day = ("0" + date.getDate()).slice(-2);
-  let hours = ("0" + date.getHours()).slice(-2);
-  let min = ("0" + date.getMinutes()).slice(-2);
-  return day + "/" + month + "/" + year + " - " + hours + ":" + min;
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
