@@ -2,14 +2,16 @@
   <div class="order-list">
     <h1>Orders List</h1>
     <div class="order" v-for="order in list" v-bind:key="order.id">
-      <span>Order: #{{ order.id }} - {{ order.date }}</span>
+      <div>
+        <span>Order: #{{ order.id }} - {{ order.date }}</span>
+        <!--<button v-on:click="updateOrder(item)">Update</button>-->
+        <button v-on:click="deleteOrder(order)">Delete</button>
+      </div>
       <div class="item" v-for="item in order.list" v-bind:key="item.id">
         <span>{{item.name}}</span>
         <span>{{item.price}} €</span>
         <span>{{item.quantity}} uds.</span>
       </div>
-      <!--<button v-on:click="updateOrder(item)">Update</button>-->
-      <!--<button v-on:click="deleteOrder(item)">Delete</button>-->
     </div>
   </div>
 </template>
@@ -31,31 +33,48 @@ export default {
         .then(response => response.json())
         .then(json => (this.list = json));
     },
-    // añade el pedido a la BD
-    createOrder: function(orderList) {
+    // leer un pedido
+    readOrder: function(order) {
+      console.log(order.id);
+      fetch("http://localhost:3000/orders/" + order.id)
+        .then(response => response.json())
+        .then(json => console.log(json));
+    },
+    // añadir un pedido a la BD
+    createOrder: function(order) {
       fetch("http://localhost:3000/orders", {
         method: "POST",
         body: JSON.stringify({
           date: myDateString(),
-          list: orderList
+          list: order
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
       })
         .then(response => response.json())
-        .then(json => console.log(json));
+        .then(json => console.log(json))
+        .then(() => this.readAll());
+    },
+    // eliminar un pedido
+    deleteOrder: function(order) {
+      fetch("http://localhost:3000/orders/" + order.id, {
+        method: "DELETE"
+      }).then(() => this.readAll());
+    },
+    updateOrder: function(order) {
+      console.log(order.id);
     }
   },
   mounted: function() {
     this.readAll();
-  },
+  } /*
   updated: function() {
     this.readAll();
-  },
+  },*/,
   created: function() {
-    EventBus.$on("create-order", orderList => {
-      this.createOrder(orderList);
+    EventBus.$on("create-order", order => {
+      this.createOrder(order);
     });
   }
 };
