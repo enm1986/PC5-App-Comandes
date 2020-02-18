@@ -5,9 +5,9 @@
         <div class="card" v-for="item in list" v-bind:class="{minus10: item.minus10}" v-bind:key="item.id">
             <span>{{ item.name }}</span>
             <div>
-                <span>{{ item.price }} € x</span>
-                <input v-model="item.quantity" type="number" min="1" max="99" />
-                <span>uds. = {{ item.price * item.quantity }} €</span>
+                <span>{{ item.price }} €</span>
+                <input v-model="item.quantity" type="number" min="1" max="99" />uds.
+                <span> {{ item.price * item.quantity }} €</span>
             </div>
             <button v-on:click="deleteProduct(item)">Delete</button>
         </div>
@@ -132,7 +132,7 @@ export default {
 }
 
 .card>div>input {
-    width: 50px;
+    width: 40px;
 }
 
 .minus10 {

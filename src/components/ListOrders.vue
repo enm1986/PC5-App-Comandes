@@ -12,10 +12,10 @@
             <div class="order-item" v-for="item in order.list" v-bind:key="item.id">
                 <span>{{ item.name }}</span>
                 <span>{{ item.price }} €</span>
-                <span>x {{ item.quantity }} =</span>
+                <span>x {{ item.quantity }} </span>
                 <span>{{ item.price * item.quantity }} €</span>
             </div>
-            <span>TOTAL: {{ calcTotal(order.list) }} €</span>
+            <span class="order-total">TOTAL: {{ calcTotal(order.list) }} €</span>
         </div>
     </div>
 </template>
@@ -62,6 +62,7 @@ export default {
                 method: "DELETE"
             }).then(() => this.readAll());
         },
+        // actualizar un pedido
         updateOrder: function(id, list) { // MODIFICAR MÉTODO
             fetch("http://localhost:3000/orders/" + id, {
                     method: "PUT",
@@ -75,9 +76,11 @@ export default {
                 })
                 .then(() => this.readAll());
         },
+        // Envia un envento para preparar la actualización de un pedido
         prepareUpdate: function(order) {
             EventBus.$emit("change-update", order.id, unbindSource(order.list));
         },
+        // Calcula el total de un pedido
         calcTotal: function(list) {
             let total = 0;
             list.forEach(function(element) {
@@ -146,7 +149,18 @@ function unbindSource(source) {
 }
 
 .order-item {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px 50px;
+
+}
+.order-item>span:not(:first-child){
+  text-align: right;
+}
+.order-total{
+  text-align: right;
+  font-weight: bold;
+  padding: 5px 50px;
+  border-top: 1px solid black;
 }
 </style>
