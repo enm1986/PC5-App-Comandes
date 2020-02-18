@@ -92,7 +92,7 @@ export default {
     mounted: function() {
         this.readAll();
     },
-    // Escucha de ventos para crear y actualizar
+    // Escucha de eventos para crear y actualizar
     created: function() {
         EventBus.$on("create-order", (list) => {
             this.createOrder(list);

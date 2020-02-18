@@ -82,6 +82,7 @@ export default {
             this.list = [];
         }
     },
+    // Escucha el evento de modificar pedido
     created: function() {
         EventBus.$on("change-update", (id, list) => {
             this.prepare = false;

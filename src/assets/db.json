@@ -31,7 +31,7 @@
       "id": 2
     },
     {
-      "date": "18/02/2020 - 17:36",
+      "date": "18/02/2020 - 20:28",
       "list": [
         {
           "name": "Processor",
@@ -42,7 +42,7 @@
         {
           "name": "RAM",
           "price": 50,
-          "quantity": "4",
+          "quantity": "91",
           "minus10": false
         },
         {
@@ -53,6 +53,24 @@
         }
       ],
       "id": 3
+    },
+    {
+      "date": "18/02/2020 - 20:29",
+      "list": [
+        {
+          "name": "dasd",
+          "price": 32320,
+          "quantity": "4",
+          "minus10": false
+        },
+        {
+          "name": "asdsd",
+          "price": 32,
+          "quantity": 1,
+          "minus10": false
+        }
+      ],
+      "id": 4
     }
   ]
 }
