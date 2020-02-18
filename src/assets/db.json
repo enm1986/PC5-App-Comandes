@@ -1,18 +1,4 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "name": "Processor"
-    },
-    {
-      "id": 2,
-      "name": "RAM"
-    },
-    {
-      "id": 3,
-      "name": "SSD"
-    }
-  ],
   "orders": [
     {
       "date": "17/02/2020 - 14:19",
@@ -45,7 +31,7 @@
       "id": 2
     },
     {
-      "date": "18/02/2020 - 16:38",
+      "date": "18/02/2020 - 17:36",
       "list": [
         {
           "name": "Processor",
