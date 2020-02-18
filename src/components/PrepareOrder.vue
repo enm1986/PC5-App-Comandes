@@ -83,13 +83,10 @@ export default {
         }
     },
     created: function() {
-        EventBus.$on("change-update", id => {
+        EventBus.$on("change-update", (id, list) => {
             this.prepare = false;
             this.id = id;
-            //EventBus.$emit("read-order", id);
-        });
-        EventBus.$on("get-list", list => {
-            this.list.push(list);
+            this.list = list;
         });
     }
 };
